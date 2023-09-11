@@ -1,0 +1,36 @@
+﻿<Window x:Class="CORTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CORTool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid MouseWheel="Grid_MouseWheel">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Canvas x:Name="ImgCanvas"  Grid.Column="0">
+                <Image x:Name="mImage" Stretch="Fill"  
+                    Canvas.Left="0" Canvas.Top="0" Canvas.Right="0" Canvas.Bottom="0"/>
+                <Image x:Name="mMask" Stretch="Fill"  
+                    Canvas.Left="0" Canvas.Top="0" Canvas.Right="0" Canvas.Bottom="0"/>
+
+            </Canvas>
+            <TextBox Grid.Column="1" x:Name="mOcrtxt"  Margin="10,0,0,0"></TextBox>
+        </Grid>
+
+        <Grid Grid.Row="0">
+            <DockPanel x:Name="LoadImgGrid"  >
+                <Button x:Name="ImgSelButton" Content="Select Image" Height="30" Click="ImgSelButton_Click"  Margin="150,0,0,0" VerticalAlignment="Center"/>
+                <TextBox x:Name="ImgPathTxt" Height="30" Text="Enter image path here" Margin="50,0,50,0" VerticalAlignment="Center"  />
+            </DockPanel>
+        </Grid>
+    </Grid>
+</Window>
