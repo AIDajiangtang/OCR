@@ -27,3 +27,27 @@ https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/deploy/cpp_infer/docs
 微信公众号回复【ocr】获取安装包以及模型  
 微信公众号：**人工智能大讲堂**  
 <img width="180" src="https://user-images.githubusercontent.com/18625471/228743333-77abe467-2385-476d-86a2-e232c6482291.jpg">  
+
+安装包中CORTool.exe为C#可执行程序  
+ppocr.exe为C++可执行程序  
+ppocr.dll为c++动态链接库  
+ch_ppocr_mobile_v2.0_cls_infer为分类模型文件夹  
+ch_PP-OCRv4_det_infer为检测模型文件夹  
+ch_PP-OCRv4_rec_infer为识别模型文件夹  
+ppocr_keys_v1.txt为检测模型字典  
+上述文件夹和文件分别对应下面函数的参数  
+
+导出函数为：
+extern "C" __declspec(dllexport)
+void ocr(
+    char* clsmodeldir, 
+    char* detmodeldir, 
+    char* recmodeldir, 
+    bool cls, 
+    bool rec, 
+    bool det, 
+    char* dickfile,
+    char* imagedir, 
+    OCRPredictResultUI ***results,
+    int** innersize,
+    int* outersize)
