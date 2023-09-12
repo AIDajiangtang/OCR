@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -67,14 +68,21 @@ namespace CORTool
             // 分配内存
             resultsPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(IntPtr)));
             innerSizesPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(IntPtr)));
+            string exePath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+            string clsmodelpath = exePath+ @"\ch_ppocr_mobile_v2.0_cls_infer\";
+            string detmodelpath = exePath + @"\ch_PP-OCRv4_det_infer\";
+            string recmodelpath = exePath + @"\ch_PP-OCRv4_rec_infer\";
+            string detdickfile = exePath + @"\ppocr_keys_v1.txt";
+
 
             ocr(
-                @"D:\AIPlus\OCR\ch_ppocr_mobile_v2.0_cls_infer\",
-                @"D:\AIPlus\OCR\ch_PP-OCRv4_det_infer\",
-                @"D:\AIPlus\OCR\ch_PP-OCRv4_rec_infer\",
+                clsmodelpath,
+                detmodelpath,
+                recmodelpath,
                 false, true, true,
-                @"D:\AIPlus\OCR\ppocr_keys_v1.txt",
-                @"D:\AIPlus\OCR\",
+                detdickfile,
+                imgdir,
                 resultsPtr,
                 innerSizesPtr,
                 out outerSize);
@@ -200,6 +208,7 @@ namespace CORTool
                 string selectedFilePath = folderBrowserDialog.SelectedPath;
                 Console.WriteLine("选择的文件路径：" + selectedFilePath);
                 this.mReady = false;
+                this.ImgPathTxt.Text = selectedFilePath;
                 this.OCR(selectedFilePath);
             }
 
