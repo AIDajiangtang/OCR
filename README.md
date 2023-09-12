@@ -22,3 +22,8 @@ https://github.com/PaddlePaddle/PaddleOCR/blob/release/2.7/deploy/cpp_infer/docs
  除此之外，可以CmakeLists.txt中add_executable(${DEMO_NAME} ${SRCS})改成add_library(${DEMO_NAME} SHARED ${SRCS})，将上述C++代码编译成动态链接库ppocr.dll，然后在C#中调用。
 
  <img width="500" src="https://user-images.githubusercontent.com/18625471/266960542-0959d676-0412-4b2f-8c4b-a07907987ba4.png">  
+
+
+微信公众号回复【ocr】获取安装包以及模型  
+微信公众号：**人工智能大讲堂**  
+<img width="180" src="https://user-images.githubusercontent.com/18625471/228743333-77abe467-2385-476d-86a2-e232c6482291.jpg">  
